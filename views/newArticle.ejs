@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./layout/head.ejs') %>
+  <body>
+    <!-- Navbar -->
+    <header><%- include('./layout/navbar.ejs') %></header>
+
+    <div class="container">
+      <header class="d-flex align-items-center justify-content-between">
+        <h2 class="my-4">New Article</h2>
+        <a href="/" class="btn btn-info">Go Back</a>
+      </header>
+
+      <!-- Form New Article -->
+      <form action="/new-article" method="post">
+        <label for="title" class="form-label fs-3">Title: </label>
+        <input type="text" id="title" name="title" class="form-control" />
+
+        <div class="form-group mt-5">
+          <label for="article" class="fs-3">Article: </label>
+          <textarea
+            name="article"
+            id="article"
+            class="form-control"
+            placeholder="type here your article"
+            style="height: 150px"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Add Article</button>
+      </form>
+    </div>
+  </body>
+</html>

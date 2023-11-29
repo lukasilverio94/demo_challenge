@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./layout/head.ejs') %>
+  <body>
+    <!-- Navbar -->
+    <%- include('./layout/navbar.ejs') %>
+
+    <!-- Article Detail -->
+    <a href="/" class="btn btn-info ms-3 mt-3">Back</a>
+    <div class="container w-50 mt-3 ms-auto">
+      <h2><%= article.title %></h2>
+      <p><%= article.article %></p>
+
+      <!-- container buttons -->
+      <div class="d-flex justify-content-between">
+        <!-- Edit -->
+        <form action="/edit-article/<%= article._id %>" class="border-none">
+          <button type="submit">
+            <a
+              class="btn btn-success"
+              href="/article/edit-article/<%= article._id %>"
+              >Edit</a
+            >
+          </button>
+        </form>
+        <!-- Delete -->
+        <form
+          action="/edit-article/<%= article._id %>"
+          method="post"
+          class="border-0"
+        >
+          <button type="submit">
+            <a
+              class="btn btn-danger"
+              href="/article/edit-article/<%= article._id %>"
+              >Delete</a
+            >
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
