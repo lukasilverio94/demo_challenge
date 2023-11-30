@@ -2,7 +2,7 @@ const Article = require("../models/articleModel");
 
 //Render All articles
 const get_articles = async (req, res) => {
-  const articles = await Article.find();
+  const articles = await Article.find().sort({ createdAt: -1 });
   res.render("index", { articles });
 };
 
