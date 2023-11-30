@@ -5,10 +5,12 @@ const articleSchema = new Schema({
   title: {
     type: String,
     required: true,
+    minlength: 25,
   },
   article: {
     type: String,
     required: true,
+    minlength: 100,
   },
   createdAt: {
     type: Date,

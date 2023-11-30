@@ -8,8 +8,12 @@ const get_articles = async (req, res) => {
 
 //GET New Article (Show at articlePage)
 const get_new_article = async (req, res) => {
-  const articles = await Article.find();
-  res.render("newArticle", { articles });
+  try {
+    const articles = await Article.find();
+    res.render("newArticle", { err: articles.errors });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 //POST New Article
@@ -22,8 +26,7 @@ const create_article = async (req, res) => {
     await newArticle.save();
     res.redirect("/");
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.render("newArticle", { err: err.errors });
   }
 };
 
