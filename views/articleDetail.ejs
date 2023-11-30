@@ -15,27 +15,15 @@
       <div class="d-flex justify-content-between">
         <!-- Edit -->
         <form action="/edit-article/<%= article._id %>" class="border-none">
-          <button type="submit">
-            <a
-              class="btn btn-success"
-              href="/article/edit-article/<%= article._id %>"
+          <button type="submit" class="btn btn-success">
+            <a class="nav-link" href="/article/edit-article/<%= article._id %>"
               >Edit</a
             >
           </button>
         </form>
         <!-- Delete -->
-        <form
-          action="/edit-article/<%= article._id %>"
-          method="post"
-          class="border-0"
-        >
-          <button type="submit">
-            <a
-              class="btn btn-danger"
-              href="/article/edit-article/<%= article._id %>"
-              >Delete</a
-            >
-          </button>
+        <form action="/article/delete-article/<%= article._id %>" method="post">
+          <button type="submit" class="btn btn-danger">Delete</button>
         </form>
       </div>
     </div>

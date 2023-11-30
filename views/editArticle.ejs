@@ -8,7 +8,7 @@
     <div class="container">
       <!-- Form New Article -->
       <h2 class="my-3">Edit Article:</h2>
-      <form action="/new-article" method="post">
+      <form action="/article/update-article/<%= article._id %>" method="post">
         <label for="title" class="form-label fs-3">Title: </label>
         <input
           type="text"
@@ -28,7 +28,7 @@
             class="form-control"
           />
         </div>
-        <button type="submit" class="btn btn-success mt-3">Add Article</button>
+        <button type="submit" class="btn btn-warning mt-3">Edit Article</button>
       </form>
     </div>
   </body>

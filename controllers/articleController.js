@@ -42,10 +42,30 @@ const get_edit_article = async (req, res) => {
   res.render("editArticle", { article });
 };
 
+// Update Article
+const update_article = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const article = await Article.findByIdAndUpdate(id, req.body);
+    res.redirect("/");
+  } catch (err) {
+    console.log(err);
+    res.status(404).send("PAGE NOT FOUND");
+  }
+};
+
+const delete_article = async (req, res) => {
+  const { id } = req.params;
+  await Article.findByIdAndDelete(id);
+  res.redirect("/");
+};
+
 module.exports = {
   get_articles,
   get_new_article,
   create_article,
   get_article,
   get_edit_article,
+  update_article,
+  delete_article,
 };
