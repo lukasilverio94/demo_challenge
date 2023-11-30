@@ -17,7 +17,7 @@
         <input type="text" id="title" name="title" class="form-control" />
         <!-- Error Title If is less than 25 -->
         <% if(err){ %>
-        <p><%= err['title'] %></p>
+        <p class="text-danger mt-2"><%= err['title'] %></p>
         <% } %>
         <div class="form-group mt-5">
           <label for="article" class="fs-3">Article: </label>
@@ -30,7 +30,7 @@
           ></textarea>
           <!-- Error article If is less than 100 -->
           <% if(err){ %>
-          <p><%= err['article'] %></p>
+          <p class="text-danger mt-2"><%= err['article'] %></p>
           <% } %>
         </div>
         <button type="submit" class="btn btn-success mt-3">Add Article</button>
