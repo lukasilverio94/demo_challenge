@@ -14,7 +14,10 @@
       <!-- container buttons -->
       <div class="d-flex justify-content-between">
         <!-- Edit -->
-        <form action="/edit-article/<%= article._id %>" class="border-none">
+        <form
+          action="/article/edit-article/<%= article._id %>"
+          class="border-none"
+        >
           <button type="submit" class="btn btn-success">
             <a class="nav-link" href="/article/edit-article/<%= article._id %>"
               >Edit</a

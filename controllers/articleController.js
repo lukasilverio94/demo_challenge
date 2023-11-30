@@ -20,7 +20,6 @@ const create_article = async (req, res) => {
       article: req.body.article,
     });
     await newArticle.save();
-    console.log(newArticle);
     res.redirect("/");
   } catch (err) {
     console.log(err);
@@ -47,7 +46,7 @@ const update_article = async (req, res) => {
   try {
     const { id } = req.params;
     const article = await Article.findByIdAndUpdate(id, req.body);
-    res.redirect("/");
+    res.status(302).redirect("/");
   } catch (err) {
     console.log(err);
     res.status(404).send("PAGE NOT FOUND");
