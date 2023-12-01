@@ -19,7 +19,10 @@
 
         <!-- Display Articles -->
         <% if(articles.length > 0){ %> <% articles.forEach(article => { %>
-        <div class="p-3 mb-2" style="border-bottom: 1px solid #4fa2ba">
+        <div
+          class="p-3 mb-2 container"
+          style="border-bottom: 1px solid #4fa2ba; word-wrap: break-word"
+        >
           <h4>
             <a class="nav-link" href="/article/<%= article._id %>"
               ><%= article.title %></a
