@@ -17,7 +17,10 @@
           class="form-control"
           value="<%= article.title  %>"
         />
-
+        <!-- Handle Error Title Update (minLength) -->
+        <% if(err){ %>
+        <p class="text-danger mt-2"><%= err['title'] %></p>
+        <% } %>
         <div class="form-group mt-5">
           <label for="article" class="fs-3">Article: </label>
           <input
@@ -27,9 +30,15 @@
             id="article"
             class="form-control"
           />
+          <!-- Handle Error Text Update (minLength) -->
+          <% if(err){ %>
+          <p class="text-danger mt-2"><%= err['article'] %></p>
+          <% } %>
         </div>
         <button type="submit" class="btn btn-warning mt-3">Edit Article</button>
       </form>
     </div>
+    <!-- Footer -->
+    <%- include('./layout/footer.ejs') %>
   </body>
 </html>

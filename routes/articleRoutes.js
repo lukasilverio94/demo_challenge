@@ -9,7 +9,5 @@ router.get("/article/:id", articleController.get_article);
 router.get("/article/edit-article/:id", articleController.get_edit_article);
 router.post("/article/update-article/:id", articleController.update_article);
 router.post("/article/delete-article/:id", articleController.delete_article);
-router.get("*", (req, res) => {
-  res.status(404).render("404");
-});
+router.get("*", articleController.getNotFoundPage);
 module.exports = router;

@@ -39,9 +39,13 @@ const get_article = async (req, res) => {
 
 // Page Edit Article
 const get_edit_article = async (req, res) => {
-  const { id } = req.params;
-  const article = await Article.findById(id);
-  res.render("editArticle", { article });
+  try {
+    const { id } = req.params;
+    const article = await Article.findById(id);
+    res.render("editArticle", { article, err: article.errors });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 // Update Article
@@ -51,8 +55,7 @@ const update_article = async (req, res) => {
     const article = await Article.findByIdAndUpdate(id, req.body);
     res.status(302).redirect("/");
   } catch (err) {
-    console.log(err);
-    res.status(404).send("PAGE NOT FOUND");
+    res.render("editArticle", { err: err.errors });
   }
 };
 
@@ -60,6 +63,10 @@ const delete_article = async (req, res) => {
   const { id } = req.params;
   await Article.findByIdAndDelete(id);
   res.redirect("/");
+};
+
+const getNotFoundPage = (req, res) => {
+  res.status(404).render("404");
 };
 
 module.exports = {
@@ -70,4 +77,5 @@ module.exports = {
   get_edit_article,
   update_article,
   delete_article,
+  getNotFoundPage,
 };
